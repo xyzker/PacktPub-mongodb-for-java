@@ -8,8 +8,8 @@ import com.mongodb.MongoClient;
 
 public class SampleQuery {
 
-    private final static int PORT = 49161;
-    private final static String HOST = "200.200.200.204";
+    private final static int PORT = 27017;
+    private final static String HOST = "10.110.25.199";
 
     public static void main(String args[]) {
         try {
@@ -20,6 +20,11 @@ public class SampleQuery {
 
             DBCollection coll = db.getCollection("javastuff");
             DBCursor cursor = coll.find();
+            //DBObject query = new BasicDBObject("name", "owen");
+            /*DBObject query = new
+                    BasicDBObject("name", new BasicDBObject("$ne",
+                                                            "frank")).append("age", new BasicDBObject("$gt", 10));*/
+            //DBCursor cursor = coll.find(query);
             try {
                 while (cursor.hasNext()) {
                     DBObject object = cursor.next();

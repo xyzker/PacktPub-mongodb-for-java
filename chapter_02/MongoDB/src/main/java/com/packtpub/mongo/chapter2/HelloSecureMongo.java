@@ -13,7 +13,7 @@ import com.mongodb.ServerAddress;
 
 public class HelloSecureMongo{
 
-    private final static String HOST = "localhost";
+    private final static String HOST = "10.110.25.199";
  
 	public static void main( String args[] ){
 	   try{   

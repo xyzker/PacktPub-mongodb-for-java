@@ -5,17 +5,19 @@
  */
 package com.packtpub.mongo.chapter2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
-import java.util.*;
 
 public class ArrayInsert {
 
-    private final static int PORT = 49161;
-    private final static String HOST = "200.200.200.204";
+    private final static int PORT = 27017;
+    private final static String HOST = "10.110.25.199";
 
     public static void main(String args[]) {
         try {

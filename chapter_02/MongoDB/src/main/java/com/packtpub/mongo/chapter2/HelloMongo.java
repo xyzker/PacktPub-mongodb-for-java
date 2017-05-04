@@ -5,8 +5,8 @@ import com.mongodb.MongoClient;
 
 public class HelloMongo {
 
-    private final static int PORT = 49161;
-    private final static String HOST = "200.200.200.204";
+    private final static int PORT = 27017;
+    private final static String HOST = "10.110.25.199";
  
 
     public static void main(String args[]) {
