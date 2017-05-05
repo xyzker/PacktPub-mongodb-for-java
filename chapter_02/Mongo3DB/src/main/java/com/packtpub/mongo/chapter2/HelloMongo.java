@@ -14,7 +14,7 @@ public class HelloMongo{
    public static void main( String args[] ){
       try{   
 		 // To connect to mongodb server
-          MongoClient mongoClient = new MongoClient(new ServerAddress("200.200.200.204", 49161));
+          MongoClient mongoClient = new MongoClient(new ServerAddress("10.110.25.199", 27017));
          // Now connect to your databases
          MongoDatabase db = mongoClient.getDatabase("test");
 		  System.out.println("Connect to database successfully ");
