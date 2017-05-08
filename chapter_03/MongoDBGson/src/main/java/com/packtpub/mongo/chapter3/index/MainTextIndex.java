@@ -12,13 +12,13 @@ public class MainTextIndex {
     public static void main(String args[]) {
         try {
 
-            MongoClient mongoClient = new MongoClient(new ServerAddress("200.200.200.204", 49161) );
+            MongoClient mongoClient = new MongoClient(new ServerAddress("10.110.25.199", 27017) );
 
             DB db = mongoClient.getDB("sampledb");
 
             DBCollection coll = db.getCollection("textitems");
 
-            coll.createIndex(new BasicDBObject("content", "text"));
+            coll.createIndex(new BasicDBObject("content", "text")); //"text"表明是文本索引
 
             coll.insert(new BasicDBObject().append("content", "mytext other content"));
 

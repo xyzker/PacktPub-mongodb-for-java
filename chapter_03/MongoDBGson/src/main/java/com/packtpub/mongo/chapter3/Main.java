@@ -10,15 +10,14 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
-import com.mongodb.util.JSON;
-import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
+import com.mongodb.util.JSON;
 
 public class Main {
 
     public static void main(String args[]) {
         try {
-            MongoClient mongoClient = new MongoClient(new ServerAddress("200.200.200.204", 49161) );
+            MongoClient mongoClient = new MongoClient(new ServerAddress("10.110.25.199", 27017) );
             // To connect to mongodb server
             DB db = mongoClient.getDB("sampledb");
 
