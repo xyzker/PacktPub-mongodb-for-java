@@ -11,7 +11,7 @@ import com.mongodb.*;
 public class MainBulkOrdered {
     public static void main(String args[]) {
         try {
-            MongoClient mongoClient = new MongoClient(new ServerAddress("200.200.200.204", 49161) );
+            MongoClient mongoClient = new MongoClient(new ServerAddress("10.110.25.199", 27017) );
             // To connect to mongodb server
             DB db = mongoClient.getDB("sampledb");
 

@@ -5,22 +5,20 @@
  */
 package com.packtpub.mongo.chapter6.repository;
 
-import com.mongodb.Mongo;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoCredential;
-import com.mongodb.ServerAddress;
-
-import java.util.Arrays;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
+import com.mongodb.ServerAddress;
+
 @Configuration
 @EnableMongoRepositories
 public class MongoConfiguration extends AbstractMongoConfiguration {
-    private  String user="ude"; // the user name
+    //private  String user="ude"; // the user name
     private  String database="ude"; // the name of the database in which the user is defined
-    private char[] password="ude".toCharArray(); // the password as a character array
+    //private char[] password="ude".toCharArray(); // the password as a character array
     @Override
     protected String getDatabaseName() {
         return database;
@@ -30,11 +28,12 @@ public class MongoConfiguration extends AbstractMongoConfiguration {
     public Mongo mongo() throws Exception {
 
         // ...
-        MongoCredential credential = MongoCredential.createScramSha1Credential(user,
+        /*MongoCredential credential = MongoCredential.createScramSha1Credential(user,
                 database,
-                password);
-        MongoClient mongoClient = new MongoClient(new ServerAddress("200.200.200.204", 49161),
-                Arrays.asList(credential));
+                password);*/
+        /*MongoClient mongoClient = new MongoClient(new ServerAddress("10.110.25.199", 27017),
+                Arrays.asList(credential));*/
+        MongoClient mongoClient = new MongoClient(new ServerAddress("10.110.25.199", 27017));
         return mongoClient;
     }
     @Override

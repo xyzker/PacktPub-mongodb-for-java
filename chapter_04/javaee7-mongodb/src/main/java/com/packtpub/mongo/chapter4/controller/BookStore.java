@@ -1,29 +1,24 @@
 package com.packtpub.mongo.chapter4.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
+import javax.inject.Inject;
+
 import com.google.gson.Gson;
 import com.mongodb.BasicDBObject;
-import com.mongodb.ConnectionString;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.MongoCredential;
-import com.mongodb.ServerAddress;
 import com.mongodb.util.JSON;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
-import javax.inject.Inject;
 import com.packtpub.mongo.chapter4.bean.Book;
 
 @Model
-public class BookStore  {
+public class BookStore {
 
     @Inject
     MongoClient mongoClient;
@@ -59,7 +54,7 @@ public class BookStore  {
 
     public List<Book> query() {
         Gson gson = new Gson();
-        
+
         DB db = mongoClient.getDB("ude");
 
         DBCollection coll = db.getCollection("bookstore");
@@ -85,21 +80,20 @@ public class BookStore  {
         }
         return list;
     }
-    
+
     public void buy(Book book) {
 
         Gson gson = new Gson();
 
-        int copiesLeft = book.getCopies() - 1;     
-               
-        
-       DB db = mongoClient.getDB("ude");
-        
+        int copiesLeft = book.getCopies() - 1;
+
+        DB db = mongoClient.getDB("ude");
+
         DBCollection coll = db.getCollection("bookstore");
 
         BasicDBObject newDocument = new BasicDBObject();
         newDocument.append("$set",
-                new BasicDBObject().append("copies", copiesLeft));
+                           new BasicDBObject().append("copies", copiesLeft));
 
         DBObject searchQuery = (DBObject) JSON.parse(gson.toJson(book));
         coll.update(searchQuery, newDocument);

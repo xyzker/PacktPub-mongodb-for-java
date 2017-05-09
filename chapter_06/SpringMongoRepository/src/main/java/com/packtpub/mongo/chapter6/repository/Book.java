@@ -2,6 +2,7 @@ package com.packtpub.mongo.chapter6.repository;
 
 import org.springframework.data.annotation.Id;
 
+//@Document(collection = "mybooks")
 public class Book {
 
     @Id
